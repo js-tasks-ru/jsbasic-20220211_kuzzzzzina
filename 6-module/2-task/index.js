@@ -13,10 +13,7 @@ export default class ProductCard {
     this.elem = createElement(this.#template())
     this.buttonClick()
   }
- /*get elem() {
-    return this.container;
-}*/
-  
+   
   #template(){
     return `
   <div class="card">
@@ -54,9 +51,4 @@ export default class ProductCard {
 
 }
 
-  /*
-  new CustomEvent("product-add", { // имя события должно быть именно "product-add"
-    detail: this.product.id, // Уникальный идентификатора товара из объекта товара
-    bubbles: true // это событие всплывает - это понадобится в дальнейшем
-}
-*/
+  
