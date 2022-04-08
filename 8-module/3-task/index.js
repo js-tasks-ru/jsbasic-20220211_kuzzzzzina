@@ -23,15 +23,17 @@ export default class Cart {
 
   updateProductCount(productId, amount) {
     // ваш код
-      this.cartItems.forEach((item, index) => {
-        if (item.product.id === productId) {
-          item.count += amount;
+    for (let i of this.cartItems) {
+      if (i.product.id == productId) {
+        i.count += amount;
+        if (i.count == 0) {
+          this.cartItems.splice(this.cartItems.indexOf(i), 1);
+          if (document.body.classList.contains("is-modal-open")) {
+            document.querySelector(`[data-product-id=${i.product.id}]`).remove();
+          }
         }
-        if (item.count == 0) {
-          this.cartItems.splice(index, 1);
-        }
-      });
-  
+      }
+    }
       this.onProductUpdate(this.cartItems);
 
   }
