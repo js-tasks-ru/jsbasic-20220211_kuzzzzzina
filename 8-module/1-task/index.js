@@ -43,14 +43,15 @@ export default class CartIcon {
     
     let initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;
 
-    let leftIndent = Math.min(
-      document.querySelector('.container').getBoundingClientRect().right + 20,
-      document.documentElement.clientWidth - this.elem.offsetWidth - 10
-    ) + 'px'
-
     let isMobile = document.documentElement.clientWidth <= 767;
 
     if (window.pageYOffset > initialTopCoord && !isMobile) {
+      
+      let leftIndent = Math.min(
+        document.querySelector('.container').getBoundingClientRect().right + 20,
+        document.documentElement.clientWidth - this.elem.offsetWidth - 10
+      ) + 'px'
+
       Object.assign(this.elem.style, {
       position: 'fixed',
       top: '50px',
